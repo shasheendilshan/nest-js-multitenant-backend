@@ -21,12 +21,12 @@ export class UsersService {
   async update(id: string, updateUserDto: UpdateUserDto) {
     const user = await this.findOne(id);
 
-    user.firstName = updateUserDto.email;
+    user.firstName = updateUserDto.firstName;
     user.lastName = updateUserDto.lastName;
     user.email = updateUserDto.email;
     user.password = updateUserDto.password;
 
-    return await this.usersRepository.save(updateUserDto);
+    return await this.usersRepository.save(user);
   }
 
   async delete(id: string) {
